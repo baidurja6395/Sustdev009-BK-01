@@ -1,0 +1,90 @@
+.close {
+  position: absolute;
+  top: -7px;
+  right: -10px;
+  font-size: 27px;
+  cursor: pointer;
+  color: #000000;
+}
+
+.boxwraper {
+  height: 65px;
+  position: relative;
+}
+
+.imgBox {
+  border-radius: 5px;
+  border: 1px solid #000000;
+  display: flex;
+  justify-content: center;
+}
+
+.imgBox img {
+  width: 100%;
+  height: 233PX;
+  border-radius: 5px;
+  margin-top: 8px;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  background: #000000;
+  box-shadow: 6px 6px 8px -5px rgb(0 0 0 / 45%);
+  border-radius: 0.3rem;
+  border: none;
+  outline: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+  width: 100%;
+  padding: 0.838rem;
+  position: relative;
+  border: 1px solid #000;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #fff;
+  border: 1px solid #000;
+  color: #000;
+}
+
+.ManageProduct {
+  width: 55%;
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  margin: auto;
+  position: relative;
+  padding: 35px;
+}
+
+label {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  color: #0f0f0f91;
+  font-weight: 500;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 230px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fileErrMsg{
+  color: red;
+}
+.Description{
+  height: 100px;
+}
+.textareaErr{
+  top: 107px;
+}
+

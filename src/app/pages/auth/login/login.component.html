@@ -1,0 +1,46 @@
+
+<div class="loginBody">
+    <div class="loginBox">
+        <h2>sing in</h2>
+        <form  *ngIf="loginForm" #loginFormRef [formGroup]="loginForm" class="form">
+            <div class="boxwraper mt-3">
+                <mat-form-field class="example-full-width" class="inputBox">
+                    <mat-label>Enter Your Email</mat-label>
+                    <input matInput placeholder="Ex. Pizza" formControlName="email">
+                </mat-form-field>
+                <div class="errDiv">
+                    <app-validation-message 
+                    [control]="loginForm.controls['email']"
+                    [messages]="errorMsg.email"
+                    > </app-validation-message>
+                </div>
+            </div>
+            <div class="boxwraper mt-2">
+                <mat-form-field class="example-full-width"  class="inputBox">
+                    <mat-label>Enter Your Password</mat-label>
+                    <input [type]="showPassWord?'text':'password'" matInput placeholder="Ex. Pizza"  formControlName="password">
+                </mat-form-field>
+                <div class="errDiv">
+                    <app-validation-message 
+                    [control]="loginForm.controls['password']"
+                    [messages]="errorMsg.password"
+                    > </app-validation-message>
+                </div>
+                <div class="eyeIcon">
+                    <i class="bi bi-eye-fill" (click)="togelPass()" *ngIf="showPassWord"></i>
+                    <i class="bi bi-eye-slash-fill" (click)="togelPass()"  *ngIf="!showPassWord"></i>
+                </div>
+            </div>
+            <div class="burttonWraper mt-5">
+                <input type="submit" value="Login" (click)="Login()">
+            </div>
+            <div class="rememberme mt-2">
+                <input type="checkbox"  name="" id="rememberMe" [checked]="rememberMe" (click)="rememberMeClick()">
+                <p >Remember me </p>
+            </div>
+            <div class="linkWraper mt-5">
+                <p>Don't have account <a [routerLink]="'registration'">Sing up</a> </p>
+            </div>
+        </form>
+    </div>
+</div>

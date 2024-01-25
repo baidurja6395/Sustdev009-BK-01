@@ -1,0 +1,61 @@
+<div class="ManageProduct">
+    <div class="close" (click)="closePopup(false)">
+        <i class="bi-x-circle-fill"></i>
+    </div>
+    <div class="row">
+        <div class="col-md-5 imgBox">
+            <div class="ImgInput" *ngIf="!ProductForm?.value.image">
+                <label for="img"> Add a Image</label>
+                <input type="file" name="" id="img" (change)="onFileChange($event)" style="width: 80%;">
+                <div class="fileErrMsg">
+                    <small>{{imgErrMsg}}</small>
+                </div>
+            </div>
+            <div class="ImgDisplay  position-relativet" *ngIf="ProductForm?.value.image">
+                <img [src]="ProductForm?.value.image" alt="">
+                <button class="mt-2 mb-1" (click)="removeFile()">Remove</button>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <form *ngIf="ProductForm" [formGroup]="ProductForm">
+                <div class="formBox">
+                    <div class="boxwraper mt-3 w-100">
+                        <mat-form-field class="example-full-width inputBox w-100">
+                            <mat-label>Product Name</mat-label>
+                            <input matInput placeholder="Ex. Pizza" formControlName="product_name">
+                        </mat-form-field>
+                        <div class="errDiv">
+                            <app-validation-message [control]="ProductForm.controls['product_name']"
+                                [messages]="errMsg.product_name"> </app-validation-message>
+                        </div>
+                    </div>
+                    <div class="boxwraper Description mt-2 w-100">
+                        <mat-form-field class="example-full-width w-100">
+                            <mat-label>Product Description</mat-label>
+                            <textarea matInput placeholder="Leave a comment" cols="10" rows="3"
+                                formControlName="description" type="text"></textarea>
+                        </mat-form-field>
+                        <div class="errDiv textareaErr">
+                            <app-validation-message [control]="ProductForm.controls['description']"
+                                [messages]="errMsg.description"> </app-validation-message>
+                        </div>
+                    </div>
+                    <div class="boxwraper mt-3 w-100">
+                        <mat-form-field class="example-full-width w-100 inputBox">
+                            <mat-label>Product Price</mat-label>
+                            <input matInput placeholder="Ex. Pizza" formControlName="price">
+                        </mat-form-field>
+                        <div class="errDiv">
+                            <app-validation-message [control]="ProductForm.controls['price']" [messages]="errMsg.price">
+                            </app-validation-message>
+                        </div>
+                    </div>
+                    <div class="save mt-2">
+                        <button
+                            (click)="saveProduct(ProductForm.getRawValue(),ProductForm.valid)">{{!isEdit?'Add':'Update'}}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

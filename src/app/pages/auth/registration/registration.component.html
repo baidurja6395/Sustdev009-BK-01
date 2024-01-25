@@ -1,0 +1,73 @@
+<div class="loginBody">
+    <div class="loginBox">
+        <h2>sing up</h2>
+        <form  *ngIf="signupForm" #loginFormRef [formGroup]="signupForm" class="form">
+            <div class="boxwraper mt-3">
+                <mat-form-field class="example-full-width" class="inputBox">
+                    <mat-label>Enter Your User Name</mat-label>
+                    <input matInput placeholder=" Abc Efg" formControlName="user_name">
+                </mat-form-field>
+                <div class="errDiv">
+                    <app-validation-message 
+                    [control]="signupForm.controls['user_name']"
+                    [messages]="errorMsg.user_name"
+                    > </app-validation-message>
+                    
+                </div>
+            </div>
+            <div class="boxwraper mt-1">
+                <mat-form-field class="example-full-width" class="inputBox">
+                    <mat-label>Enter Your Email</mat-label>
+                    <input matInput placeholder="abc@gmail.com" formControlName="email">
+                </mat-form-field>
+                <div class="errDiv">
+                    <app-validation-message 
+                    [control]="signupForm.controls['email']"
+                    [messages]="errorMsg.email"
+                    > </app-validation-message>
+                    
+                </div>
+            </div>
+            <div class="boxwraper mt-2">
+                <mat-form-field class="example-full-width"  class="inputBox">
+                    <mat-label>Enter New Password</mat-label>
+                    <input [type]="showPassWord?'text':'password'" matInput placeholder=""  formControlName="password">
+                </mat-form-field>
+                <div class="errDiv">
+                    <app-validation-message 
+                    [control]="signupForm.controls['password']"
+                    [messages]="errorMsg.password"
+                    > </app-validation-message>
+                </div>
+                <div class="eyeIcon">
+                    <i class="bi bi-eye-fill" (click)="togelPass()" *ngIf="showPassWord"></i>
+                    <i class="bi bi-eye-slash-fill" (click)="togelPass()"  *ngIf="!showPassWord"></i>
+                </div>
+            </div>
+            <div class="boxwraper mt-2">
+                <mat-form-field class="example-full-width"  class="inputBox">
+                    <mat-label>Enter Confirm Password</mat-label>
+                    <input [type]="showConfPassWord?'text':'password'" matInput placeholder=""  formControlName="confPassword">
+                </mat-form-field>
+                <div class="errDiv">
+                    <app-validation-message 
+                    [control]="signupForm.controls['confPassword']"
+                    [messages]="errorMsg.confPassword"
+                    > </app-validation-message>
+                    <small style="color: red;">{{confPassErrmsg}}</small>
+                </div>
+                <div class="eyeIcon">
+                    <i class="bi bi-eye-fill" (click)="togelPass()" *ngIf="showConfPassWord"></i>
+                    <i class="bi bi-eye-slash-fill" (click)="togelPass()"  *ngIf="!showConfPassWord"></i>
+                </div>
+            </div>
+            <div class="burttonWraper mt-4">
+                <input type="submit" value="Register" (click)="signup()">
+            </div>
+            <div class="linkWraper mt-2">
+                <p>Remember account <a [routerLink]="'../'">Sing in</a> </p>
+            </div>
+        </form>
+        
+    </div>
+</div>
